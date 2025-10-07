@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  7 OCT 2025 10:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  7 OCT 2025 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,25 +513,35 @@ Before submitting the final camera ready copy, remember to:
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `DSP_MidtermPIT.out' has not changed.
-(rerunfilecheck)             Checksum: 99EBFBA24072EDA7585B8A56E91C9591;3561.
+
+
+Package rerunfilecheck Warning: File `DSP_MidtermPIT.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DSP_MidtermPIT.out':
+(rerunfilecheck)             Before: 3C622A27B55C14DE41061587FA84B245;3655
+(rerunfilecheck)             After:  A885008DE51104A4FBD988DDAB74C7DD;3561.
  ) 
 Here is how much of TeX's memory you used:
- 11086 strings out of 474486
- 173903 string characters out of 5744227
+ 11087 strings out of 474486
+ 173913 string characters out of 5744227
  1949542 words of memory out of 5000000
- 33213 multiletter control sequences out of 15000+600000
+ 33214 multiletter control sequences out of 15000+600000
  593455 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,1203b,579s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb
-><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb
-><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+ 75i,14n,79p,1303b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on DSP_MidtermPIT.pdf (4 pages, 90041 bytes).
+pdfTeX warning (dest): name{section.6} has been referenced but does not exist, 
+replaced by a fixed one
+
+<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><
+C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><
+C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C
+:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on DSP_MidtermPIT.pdf (4 pages, 90799 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
+ 133 PDF objects out of 1000 (max. 8388607)
  28 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
