@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.5)  8 OCT 2025 20:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.5)  9 OCT 2025 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -499,14 +499,244 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
 
+Underfull \hbox (badness 2512) in paragraph at lines 119--120
+[]\OT1/ptm/m/n/10 Finally, scal-a-bil-ity to in-dus-trial op-er-a-tions re-main
+s a
+ []
+
+
+Underfull \hbox (badness 5036) in paragraph at lines 119--120
+\OT1/ptm/m/n/10 when in-te-grated into high-throughput pro-duc-tion lines.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 129--129
+\OT1/ptm/m/n/8 sian fil-ter-ing, his-togram
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]\OT1/ptm/m/n/8 95% ac-cu-racy; bet-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+\OT1/ptm/m/n/8 light-ing; per-for-mance
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+\OT1/ptm/m/n/8 drops in vari-able
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+[]\OT1/ptm/m/n/8 HSI (400{1000
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+\OT1/ptm/m/n/8 nm); Sav-itzky{Golay
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+[]\OT1/ptm/m/n/8 93% ac-cu-racy; non-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+\OT1/ptm/m/n/8 destructive in-ter-nal
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 131--132
+\OT1/ptm/m/n/8 com-plex-ity; not suit-able
+ []
+
+
+Underfull \hbox (badness 4899) in paragraph at lines 133--133
+[]\OT1/ptm/b/n/8 C. Acous-tic Re-sponse
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
+[]\OT1/ptm/m/n/8 Detect cracks through
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
+\OT1/ptm/m/n/8 for frequency-domain
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 135--135
+\OT1/ptm/b/n/8 Mor-pho-log-i-cal Pro-cess-
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 135--135
+\OT1/ptm/m/n/8 log-i-cal op-er-a-tions; ge-o-
+ []
+
+
+Underfull \hbox (badness 5077) in paragraph at lines 135--136
+[]\OT1/ptm/m/n/8 Struggles with over-lap-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+[]\OT1/ptm/b/n/8 E. Lightweight Deep
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+[]\OT1/ptm/m/n/8 Depthwise sep-a-ra-ble
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+\OT1/ptm/m/n/8 con-vo-lu-tions;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+\OT1/ptm/m/n/8 pre-pro-cess-ing (con-trast
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+\OT1/ptm/m/n/8 nor-mal-iza-tion, Gaus-sian
+ []
+
+
+Underfull \hbox (badness 3895) in paragraph at lines 137--137
+[]\OT1/ptm/m/n/8 94% ac-cu-racy; runs at
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 137--138
+[]\OT1/ptm/m/n/8 Slight ac-cu-racy drop in
+ []
+
+
+Underfull \hbox (badness 2368) in paragraph at lines 139--139
+[]\OT1/ptm/m/n/8 Detect micro-cracks not
+ []
+
+
+Underfull \hbox (badness 3769) in paragraph at lines 139--139
+\OT1/ptm/m/n/8 Gra-di-ent Boosted Trees
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+[]\OT1/ptm/m/n/8 96% ac-cu-racy; de-tects
+ []
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 139--139
+\OT1/ptm/m/n/8 micro-cracks missed by
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+[]\OT1/ptm/m/n/8 High cost, ra-di-a-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+\OT1/ptm/m/n/8 safety, and reg-u-la-tory
+ []
+
+
+Underfull \hbox (badness 4699) in paragraph at lines 141--141
+\OT1/ptm/m/n/8 mal-iza-tion; deep neu-ral
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 141--141
+\OT1/ptm/m/n/8 net-work for mul-ti-modal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]\OT1/ptm/m/n/8 95% ac-cu-racy; ro-bust
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+\OT1/ptm/m/n/8 to light-ing vari-a-tion;
+ []
+
+
+Underfull \hbox (badness 4859) in paragraph at lines 143--143
+\OT1/ptm/b/n/8 for Egg Clas-si-fi-ca-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+[]\OT1/ptm/m/n/8 97% ac-cu-racy;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+\OT1/ptm/m/n/8 out-per-forms CNN
+ []
+
+
+Underfull \hbox (badness 5446) in paragraph at lines 143--144
+[]\OT1/ptm/m/n/8 High com-pu-ta-tional re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
+[]\OT1/ptm/b/n/8 I. Com-puter Vision-
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 145--145
+\OT1/ptm/b/n/8 for Egg Grad-ing and
+ []
+
+
+Underfull \hbox (badness 7504) in paragraph at lines 145--145
+[]\OT1/ptm/m/n/8 Integrate deep learn-ing
+ []
+
+
+Underfull \hbox (badness 6477) in paragraph at lines 145--145
+\OT1/ptm/m/n/8 nor-mal-iza-tion); RT-MDet
+ []
+
+
+Underfull \hbox (badness 1478) in paragraph at lines 145--145
+\OT1/ptm/m/n/8 racy; $\OML/cmm/m/it/8 R[] \OT1/cmr/m/n/8 = 0\OML/cmm/m/it/8 :\O
+T1/cmr/m/n/8 96$ \OT1/ptm/m/n/8 for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+[]\OT1/ptm/m/n/8 Requires high-quality
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 145--146
+\OT1/ptm/m/n/8 imag-ing setup; may be
+ []
+
+
 
 [3]
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 14
-6.
-(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
+
+
+[4]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -520,7 +750,11 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[4] (DSP_MidtermPIT.aux)
+
+
+[5
+
+] (DSP_MidtermPIT.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -529,21 +763,24 @@ Package rerunfilecheck Info: File `DSP_MidtermPIT.out' has not changed.
 (rerunfilecheck)             Checksum: F1CA266680CE4262AC77294544976441;4034.
  ) 
 Here is how much of TeX's memory you used:
- 11174 strings out of 468130
- 174065 string characters out of 5431117
- 604974 words of memory out of 5000000
- 39636 multiletter control sequences out of 15000+600000
- 664169 words of font info for 107 fonts, out of 8000000 for 9000
+ 11166 strings out of 468130
+ 173893 string characters out of 5431117
+ 611068 words of memory out of 5000000
+ 39625 multiletter control sequences out of 15000+600000
+ 668189 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,1825b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb
-><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb
-><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-
-Output written on DSP_MidtermPIT.pdf (4 pages, 96665 bytes).
+ 75i,14n,79p,1825b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/u
+rw/times/utmb8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/ur
+w/times/utmbi8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/ur
+w/times/utmr8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw
+/times/utmri8a.pfb>
+Output written on DSP_MidtermPIT.pdf (5 pages, 130887 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

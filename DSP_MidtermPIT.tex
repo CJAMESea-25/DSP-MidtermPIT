@@ -116,8 +116,37 @@
 	
 	Limited datasets represent another major challenge across nearly all approaches. Many models are trained on relatively small, and lab-generated datasets that do not capture the full variability of real-world conditions such as egg size, color, surface texture, or environmental factors. Therefore, models may overfit to controlled experimental conditions, which results in poor generalization to new data or unseen farm environments. This problem is more present in deep learning approaches, which typically require large and diverse datasets.
 	
-	Finally, scalability to industrial operations remains a persistent challenge. Even models that demonstrate high accuracy in controlled laboratory conditions often struggle when integrated into high-throughput production lines. Factors such as overlapping eggs on conveyor belts, varying conveyor speeds, inconsistent orientations, and uncontrolled backgrounds can significantly degrade performance. These operational challenges highlight the gap between laboratory research and practical, real-world deployment, emphasizing the need for models that are both robust and adaptable to dynamic industrial environments.
-
+	Finally, scalability to industrial operations remains a persistent challenge. Even models that demonstrate high accuracy in controlled laboratory conditions often struggle when integrated into high-throughput production lines. Factors such as overlapping eggs on conveyor belts, varying conveyor speeds, inconsistent orientations, and uncontrolled backgrounds can significantly degrade performance. These operational challenges highlight the gap between laboratory research and practical, real-world deployment, emphasizing the need for models that are both robust and adaptable to dynamic industrial environments. \\
+	
+	\begin{table*}[htbp]
+		\centering
+		\caption{Summary of Reviewed Studies on Automated Egg Classification (2020–2025)}
+		\label{tab:reviewed_studies}
+		\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+			\hline
+			\textbf{Study \& Year} & \textbf{Focus / Objective} & \textbf{Methods Used} & \textbf{Findings / Results} & \textbf{Limitations} \\
+			\hline
+			\textbf{A. Image-Based Eggshell Defect Detection Using CNN (2020)} & Detect cracks and dirt on eggshells using CNN & DSP preprocessing (Gaussian filtering, histogram equalization); CNN classification on labeled images & 95\% accuracy; better generalization than SVM-based methods & Dependent on controlled lighting; performance drops in variable illumination \\
+			\hline
+			\textbf{B. Hyperspectral Imaging for Internal Quality Assessment (2021)} & Assess internal freshness using hyperspectral imaging & HSI (400–1000 nm); Savitzky–Golay smoothing; PCA + PLS-DA classification & 93\% accuracy; non-destructive internal quality analysis & High cost and calibration complexity; not suitable for small farms \\
+			\hline
+			\textbf{C. Acoustic Response Analysis for Crack Detection (2021)} & Detect cracks through acoustic signals & Mechanical tapping; FFT for frequency-domain analysis; Random Forest classification & 92\% accuracy; low cost; unaffected by surface dirt & Sensitive to environmental noise; requires quiet surroundings \\
+			\hline
+			\textbf{D. Computer Vision with Morphological Processing (2022)} & Classify eggs by size and shape & Edge detection; morphological operations; geometric feature extraction; SVM classification & 90\% accuracy; computationally efficient; suitable for real-time use & Struggles with overlapping eggs and poor segmentation \\
+			\hline
+			\textbf{E. Lightweight Deep Learning for Embedded Systems (2022)} & Develop low-power CNN for small devices & Depthwise separable convolutions; preprocessing (contrast normalization, Gaussian noise reduction) & 94\% accuracy; runs at 12 FPS on Raspberry Pi; cost-effective & Slight accuracy drop in low-light conditions \\
+			\hline
+			\textbf{F. X-ray Imaging for Internal Crack Detection (2023)} & Detect micro-cracks not visible to human eye & Median filtering; texture extraction using GLCM; Gradient Boosted Trees classification & 96\% accuracy; detects micro-cracks missed by candling & High cost, radiation safety, and regulatory issues \\
+			\hline
+			\textbf{G. Multispectral Fusion for Freshness Classification (2024)} & Combine RGB and NIR data for freshness assessment & DSP alignment and normalization; deep neural network for multimodal feature fusion & 95\% accuracy; robust to lighting variation; improved generalization & Complex sensor synchronization; high equipment cost \\
+			\hline
+			\textbf{H. Vision Transformers for Egg Classification (2025)} & Apply Vision Transformers (ViT) for defect detection & Data augmentation; normalization; ViT architecture for feature analysis & 97\% accuracy; outperforms CNN baselines & High computational requirements; unsuitable for embedded use \\
+			\hline
+			\textbf{I. Computer Vision-Based Automatic System for Egg Grading and Defect Detection (2025)} & Integrate deep learning and ML for grading and defect detection & Canon EOS camera; preprocessing (noise removal, normalization); RTMDet model; Random Forest regression for weight prediction & 94.8\% classification accuracy; $R^2 = 0.96$ for weight prediction; effective real-time performance & Requires high-quality imaging setup; may be costly for small farms \\
+			\hline
+		\end{tabular}
+	\end{table*}
+	
 	\section{Proposed Solutions}
 	
 	To address the challenges facing automated egg classification systems, researchers have proposed a variety of strategies aimed at improving robustness, scalability, and accessibility. One of the most widely adopted approaches is robust preprocessing and data augmentation. Techniques such as histogram equalization, spectral normalization, and geometric augmentation enhance system resilience against environmental conditions. These preprocessing steps are crucial in improving the reliability and consistency of vision-based classification systems.
@@ -143,7 +172,6 @@
 		\bibitem{garcia2024fusion} L. Garcia, et al., ``Fusion of RGB and NIR data for egg freshness classification,'' \textit{Sensors}, vol. 24, no. 6, 2024.
 		\bibitem{huang2025vit} Z. Huang, et al., ``Vision Transformers for egg quality classification,'' \textit{Frontiers in Plant Science}, vol. 16, 2025.
 		\bibitem{yang2023eggGrading} X. Yang, R. B. Bist, S. Subedi, and L. Chai, “A Computer Vision-Based Automatic System for Egg Grading and Defect Detection,” Animals, vol. 13, no. 14, p. 2354, Jan. 2023, \textit{doi: https://doi.org/10.3390/ani13142354.}
-		‌
 	\end{thebibliography}
 	
 \end{document}
