@@ -11,6 +11,8 @@
 	citecolor=blue,        
 	urlcolor=blue          
 ]{hyperref}
+\newcommand{\nextbreak}{\vfill\null\pagebreak}
+
 
 \IEEEoverridecommandlockouts
 
@@ -106,6 +108,37 @@
 	\subsection{A Computer Vision-Based Automatic System for Egg Grading and Defect Detection}
 	In this study an advanced computer vision-based system was developed to automatically grade and detect defects in eggs by integrating deep learning and machine learning techniques. The researchers used 800 Hy-Line W-36 hens in a cage-free production system, from which eggs were collected daily and manually categorized into standard and non-standard groups based on size and surface quality. An image acquisition system was constructed using a Canon EOS 4000D camera, tripod, digital scale, and computer to capture and record both egg images and corresponding weights. The collected data underwent preprocessing, including noise removal, normalization, and clustering, to enhance image quality and ensure accurate feature extraction. For classification, the study employed a Real-Time Multitask Detection (RTMDet) model—a modern convolutional neural network (CNN) derived from YOLO architecture—enhanced with large-kernel depth-wise convolutions and soft label assignments to improve small-object detection and classification accuracy. The RTMDet model extracted key egg features such as major and minor axes for size and shape analysis, which were then used by a Random Forest regression algorithm to predict egg weight. The dataset, comprising 2100 egg images, was split into training and testing sets in a 4:1 ratio, and model performance was evaluated using precision, recall, F1-score, mean average precision (mAP), and coefficient of determination (R²). The best-performing variant, RTMDet-x, achieved a classification accuracy of 94.8\% and an R² value of 0.96 for weight prediction, demonstrating the system’s capability to perform simultaneous egg grading and weighting efficiently \cite{yang2023eggGrading}.
 	
+	\begin{table*}[htbp]
+		\centering
+		\caption{Summary of Reviewed Studies on Automated Egg Classification (2020–2025)}
+		\label{tab:reviewed_studies}
+		\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+			\hline
+			\textbf{Study \& Year} & \textbf{Focus / Objective} & \textbf{Methods Used} & \textbf{Findings / Results} \\
+			\hline
+			\textbf{A. Image-Based Eggshell Defect Detection Using CNN (2020)} & Detect cracks and dirt on eggshells using CNN & DSP preprocessing (Gaussian filtering, histogram equalization); CNN classification on labeled images & 95\% accuracy; better generalization than SVM-based methods \\
+			\hline
+			\textbf{B. Hyperspectral Imaging for Internal Quality Assessment (2021)} & Assess internal freshness using hyperspectral imaging & HSI (400–1000 nm); Savitzky–Golay smoothing; PCA + PLS-DA classification & 93\% accuracy; non-destructive internal quality analysis \\
+			\hline
+			\textbf{C. Acoustic Response Analysis for Crack Detection (2021)} & Detect cracks through acoustic signals & Mechanical tapping; FFT for frequency-domain analysis; Random Forest classification & 92\% accuracy; low cost; unaffected by surface dirt \\
+			\hline
+			\textbf{D. Computer Vision with Morphological Processing (2022)} & Classify eggs by size and shape & Edge detection; morphological operations; geometric feature extraction; SVM classification & 90\% accuracy; computationally efficient; suitable for real-time use \\
+			\hline
+			\textbf{E. Lightweight Deep Learning for Embedded Systems (2022)} & Develop low-power CNN for small devices & Depthwise separable convolutions; preprocessing (contrast normalization, Gaussian noise reduction) & 94\% accuracy; runs at 12 FPS on Raspberry Pi; cost-effective \\
+			\hline
+			\textbf{F. X-ray Imaging for Internal Crack Detection (2023)} & Detect micro-cracks not visible to human eye & Median filtering; texture extraction using GLCM; Gradient Boosted Trees classification & 96\% accuracy; detects micro-cracks missed by candling \\
+			\hline
+			\textbf{G. Multispectral Fusion for Freshness Classification (2024)} & Combine RGB and NIR data for freshness assessment & DSP alignment and normalization; deep neural network for multimodal feature fusion & 95\% accuracy; robust to lighting variation; improved generalization \\
+			\hline
+			\textbf{H. Vision Transformers for Egg Classification (2025)} & Apply Vision Transformers (ViT) for defect detection & Data augmentation; normalization; ViT architecture for feature analysis & 97\% accuracy; outperforms CNN baselines \\
+			\hline
+			\textbf{I. Computer Vision-Based Automatic System for Egg Grading and Defect Detection (2025)} & Integrate deep learning and ML for grading and defect detection & Canon EOS camera; preprocessing (noise removal, normalization); RTMDet model; Random Forest regression for weight prediction & 94.8\% classification accuracy; $R^2 = 0.96$ for weight prediction; effective real-time performance \\
+			\hline
+		\end{tabular}
+	\end{table*}
+	
+	\nextbreak
+	
 	\section{Challenges and Issues}
 	
 	Automated egg classification systems face a variety of significant challenges that affects their weidespread implementation in real-world settings. One of the most prominent issues is lighting variability in image-based methods. Systems such as those proposed by \cite{zhang2020cnn} and \cite{singh2022vision} rely heavily on consistent illumination to accurately detect cracks, dirt, or deformities on eggshells. Even minor variations in lighting conditions can cause misclassifications, as small surface features may be obscured or exaggerated. In practical farm environments, where natural light changes throughout the day and artificial lighting may be uneven or insufficient, which maintains optimal lighting conditions, which is often impractical and can lead to inconsistent performance and decreased reliability.
@@ -118,34 +151,7 @@
 	
 	Finally, scalability to industrial operations remains a persistent challenge. Even models that demonstrate high accuracy in controlled laboratory conditions often struggle when integrated into high-throughput production lines. Factors such as overlapping eggs on conveyor belts, varying conveyor speeds, inconsistent orientations, and uncontrolled backgrounds can significantly degrade performance. These operational challenges highlight the gap between laboratory research and practical, real-world deployment, emphasizing the need for models that are both robust and adaptable to dynamic industrial environments. \\
 	
-	\begin{table*}[htbp]
-		\centering
-		\caption{Summary of Reviewed Studies on Automated Egg Classification (2020–2025)}
-		\label{tab:reviewed_studies}
-		\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
-			\hline
-			\textbf{Study \& Year} & \textbf{Focus / Objective} & \textbf{Methods Used} & \textbf{Findings / Results} & \textbf{Limitations} \\
-			\hline
-			\textbf{A. Image-Based Eggshell Defect Detection Using CNN (2020)} & Detect cracks and dirt on eggshells using CNN & DSP preprocessing (Gaussian filtering, histogram equalization); CNN classification on labeled images & 95\% accuracy; better generalization than SVM-based methods & Dependent on controlled lighting; performance drops in variable illumination \\
-			\hline
-			\textbf{B. Hyperspectral Imaging for Internal Quality Assessment (2021)} & Assess internal freshness using hyperspectral imaging & HSI (400–1000 nm); Savitzky–Golay smoothing; PCA + PLS-DA classification & 93\% accuracy; non-destructive internal quality analysis & High cost and calibration complexity; not suitable for small farms \\
-			\hline
-			\textbf{C. Acoustic Response Analysis for Crack Detection (2021)} & Detect cracks through acoustic signals & Mechanical tapping; FFT for frequency-domain analysis; Random Forest classification & 92\% accuracy; low cost; unaffected by surface dirt & Sensitive to environmental noise; requires quiet surroundings \\
-			\hline
-			\textbf{D. Computer Vision with Morphological Processing (2022)} & Classify eggs by size and shape & Edge detection; morphological operations; geometric feature extraction; SVM classification & 90\% accuracy; computationally efficient; suitable for real-time use & Struggles with overlapping eggs and poor segmentation \\
-			\hline
-			\textbf{E. Lightweight Deep Learning for Embedded Systems (2022)} & Develop low-power CNN for small devices & Depthwise separable convolutions; preprocessing (contrast normalization, Gaussian noise reduction) & 94\% accuracy; runs at 12 FPS on Raspberry Pi; cost-effective & Slight accuracy drop in low-light conditions \\
-			\hline
-			\textbf{F. X-ray Imaging for Internal Crack Detection (2023)} & Detect micro-cracks not visible to human eye & Median filtering; texture extraction using GLCM; Gradient Boosted Trees classification & 96\% accuracy; detects micro-cracks missed by candling & High cost, radiation safety, and regulatory issues \\
-			\hline
-			\textbf{G. Multispectral Fusion for Freshness Classification (2024)} & Combine RGB and NIR data for freshness assessment & DSP alignment and normalization; deep neural network for multimodal feature fusion & 95\% accuracy; robust to lighting variation; improved generalization & Complex sensor synchronization; high equipment cost \\
-			\hline
-			\textbf{H. Vision Transformers for Egg Classification (2025)} & Apply Vision Transformers (ViT) for defect detection & Data augmentation; normalization; ViT architecture for feature analysis & 97\% accuracy; outperforms CNN baselines & High computational requirements; unsuitable for embedded use \\
-			\hline
-			\textbf{I. Computer Vision-Based Automatic System for Egg Grading and Defect Detection (2025)} & Integrate deep learning and ML for grading and defect detection & Canon EOS camera; preprocessing (noise removal, normalization); RTMDet model; Random Forest regression for weight prediction & 94.8\% classification accuracy; $R^2 = 0.96$ for weight prediction; effective real-time performance & Requires high-quality imaging setup; may be costly for small farms \\
-			\hline
-		\end{tabular}
-	\end{table*}
+
 	
 	\section{Proposed Solutions}
 	
