@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+\usepackage{float}
 \IEEEoverridecommandlockouts
 
 \begin{document}
@@ -36,7 +37,7 @@
 	
 	Several studies have explored the use of machine vision and image processing techniques to address these limitations. Research has investigated the use of egg shape parameters, including area, and minor axes, diameter, perimeter, and volume, for automated grading. It was demonstrated that shape-based grading achieved higher recognition accuracy (94.16\%) compared to traditional weight-based classification (44.17\%), highlighting the importance of geometric features in egg evaluation \cite{nasir2018}. Similarly, methods have been proposed to estimate egg volume and weight using image-based geometric measurements in combination with artificial neural networks (ANNs). Pappus’ theorem and ANN modeling were applied to accurately predict egg volume, achieving correlation coefficients up to 0.99, while high-accuracy weight prediction with mean absolute errors as low as 2.3 g was achieved using MLP networks \cite{soltani2015}\cite{asadi2010}\cite{nasir2018}.
 	
-	The focus on low-cost and accessible technologies has also been emphasized. A webcam-based computer vision system was developed capable of estimating egg weight with minimal human interaction, demonstrating that reliable results could be achieved without expensive hardware \cite{aragua2018}. These approaches were extended to mobile platforms, implementing image processing and support vector machine (SVM) classification to estimate egg size directly from smartphone-captured images, achieving overall classification accuracy of 80.4\% \cite{thipakorn2017}. A single-view measurement approach combined with deep learning was also introduced to capture the actual outline of eggs in small-batch scenarios, enabling accurate measurement of major and minor axes with R² values of 0.969 and 0.926, respectively \cite{liu2023}. These advancements reflect a clear trend towards integrating image processing, machine learning, and geometric modeling to enhance both accuracy and accessibility in egg classification.
+	The focus on low-cost and accessible technologies has also been emphasized. A webcam-based computer vision system was developed capable of estimating egg weight with minimal human interaction, demonstrating that reliable results could be achieved without expensive hardware \cite{2018}. These approaches were extended to mobile platforms, implementing image processing and support vector machine (SVM) classification to estimate egg size directly from smartphone-captured images, achieving overall classification accuracy of 80.4\% \cite{thipakorn2017}. A single-view measurement approach combined with deep learning was also introduced to capture the actual outline of eggs in small-batch scenarios, enabling accurate measurement of major and minor axes with R² values of 0.969 and 0.926, respectively \cite{liu2023}. These advancements reflect a clear trend towards integrating image processing, machine learning, and geometric modeling to enhance both accuracy and accessibility in egg classification.
 	
 	Beyond technological approaches, understanding the relationship between egg weight, size, and quality parameters across breeds is essential for practical application. Evaluation of 14 chicken breeds under Philippine conditions correlated egg weight with internal characteristics such as yolk and albumen weights, and implemented standard Haugh unit-based grading and size classification \cite{bondoc2021}. This study highlighted the variability of egg characteristics among native, commercial, and hybrid breeds, emphasizing the need for automated systems capable of accommodating such diversity.
 	
@@ -64,11 +65,22 @@
 	
 	\subsection{DSP Feature Extraction and Geometric Modeling}
 	
-	Beyond filtering, DSP was also applied to extract geometric and morphological features from digital egg images. A machine vision system estimated egg weight based on two-dimensional projections \cite{asadi2010}. The approach involved image preprocessing through grayscale conversion, Canny edge detection, and morphological segmentation to isolate the egg contour from the background. The resulting binary image was analyzed to compute geometric descriptors such as major axis length (L), minor axis length (B), area (A), and perimeter (P). The shape index (SI), a critical parameter for egg classification, was calculated using the formula:
+	Beyond filtering, DSP was also applied to extract geometric and morphological features from digital egg images. A machine vision system estimated egg weight based on two-dimensional projections \cite{asadi2010}. The approach involved image preprocessing through grayscale conversion, Canny edge detection, and morphological segmentation to isolate the egg contour from the background. The resulting binary image was analyzed to compute geometric descriptors such as major axis length (L), minor axis length (B), area (A), and perimeter (P).
+	
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.50\textwidth]{fig2.png}
+		\caption{Illustration of ellipse parameters used in egg dimension measurement: (a) minor axis length and (b) major axis length \cite{aragua2018}.}
+		\label{fig:ellipse_axes}
+	\end{figure}
+	
+	The shape index (SI), a critical parameter for egg classification, was calculated using the formula:
 	
 	\[
 	SI = \frac{B}{L} \times 100
 	\]
+
 	
 	where SI represents the percentage ratio of egg breadth to its length. Eggs with higher SI values were more spherical, while lower values indicated elongated shapes.
 	
@@ -80,7 +92,7 @@
 	
 	where \(V\) is the volume, \(A\) is the area of the rotated region, and \(d\) is the distance from its centroid to the axis of rotation.
 	
-	Ellipsoid modeling techniques represented the egg as a triaxial ellipsoid defined by semi-major axes \(a\), \(b\), and \(c\), with the estimated egg volume computed using the standard ellipsoid equation \cite{aragua2018}:
+	Ellipsoid modeling techniques represented the egg as a triaxial ellipsoid defined by semi-major axes \(a\), \(b\), and \(c\), with the estimated egg volume computed using the standard ellipsoid equation \cite{2018}:
 	
 	\[
 	V = \frac{4}{3} \pi a b c
