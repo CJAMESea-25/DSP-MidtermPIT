@@ -18,7 +18,7 @@
 
 \begin{document}
 	
-	\title{A Comprehensive Review of Digital Signal Processing and Machine Learning Techniques for Automated Egg Classification}
+	\title{A Comprehensive Review of Digital Signal Processing and Computer Vision for Automated Egg Classification}
 	
 	\author{
 		\resizebox{\textwidth}{!}{%
@@ -49,7 +49,7 @@
 	
 	This paper provides a systematic review of eight representative studies from 2020 to 2025. We analyze their methodologies, highlight implementation challenges, discuss proposed solutions, and synthesize findings into a cohesive evaluation of the field.
 	
-	\section{Methodology of Reviewed Studies}
+	\section{Methodology}
 	
 	\subsection{Image-Based Eggshell Defect Detection Using CNN (2020)}
 	\cite{zhang2020cnn} developed a convolutional neural network (CNN)-based system for detecting cracks and surface dirt on eggshells. Their methodology combined DSP preprocessing with deep learning classification. Images of eggs were captured under controlled lighting, followed by Gaussian filtering to reduce background noise. Histogram equalization was applied to improve contrast, enhancing the visibility of fine cracks.  
@@ -153,17 +153,9 @@
 	
 
 	
-	\section{Proposed Solutions}
+	\section{Solutions}
 	
-	To address the challenges facing automated egg classification systems, researchers have proposed a variety of strategies aimed at improving robustness, scalability, and accessibility. One of the most widely adopted approaches is robust preprocessing and data augmentation. Techniques such as histogram equalization, spectral normalization, and geometric augmentation enhance system resilience against environmental conditions. These preprocessing steps are crucial in improving the reliability and consistency of vision-based classification systems.
-	
-	Lightweight architectures for embedded systems represent another promising solution. Models such as lightweight CNNs \cite{chen2022lightweight}, combined with mode compression techniques, enable real=time deployment on low-power devices like Raspberry Pi. By reducing computation requirements without significantly sacrificing accuracy, these architectures make automated egg inspection more accessible for small-to-medium-scale farmers.
-	
-	Multimodal fusion approaches have also shown significant potential in enhancing system robustness. By combining multiple sensor modalities such as standard RGB imaging with near-infrared (NIR) spectroscopy \cite{garcia2024fusion}. These systems can integrate complementary information from different sources. Multimodal designs reduce reliance on a single type of data. This helps soften the impact of variable lighting or environmental conditions and improving overall classification performance.
-	
-	Cost reduction through low-cost sensors is another key strategy. Researchers have explored replacing expensive hyperspectral or X-ray equipment with more affordable alternatives, which optimizes digitral signal processing pipelines to work effectively with inexpensive cameras and microphones. These efforts make advanced inspection technologies more feasible for widespread use, especially in small farms.
-
-	Finally, hybrid DSP-ML pipelines offer a balanced solution that combines traditional signal processing techniques such as Fast Fourier Transform and morpholohical processing, with machine learning algorithms. These hybrid approaches improve interpretability, reduce computational load, and maintain high classification accuracy. By integrating classical DSP methods with modern machine learning, these pipelines provide an effective compromise between efficiency and accuracy, and addresses the many challenges in automated egg classification.
+	To address the key challenges identified in the literature—such as inconsistent lighting, segmentation inaccuracies, and dependence on costly imaging systems—this study proposes a Digital Signal Processing (DSP) and OpenCV-based image analysis framework for automated egg size classification. The proposed solution adopts image preprocessing techniques consistent with those in prior studies, including histogram equalization to enhance contrast and Gaussian filtering to suppress image noise while preserving edge information. After preprocessing, adaptive thresholding is applied to separate the egg region from the background, followed by morphological operations such as opening and closing to refine segmentation and remove small artifacts. The refined binary image is then processed through edge detection using the Canny or Sobel operator to accurately delineate the egg contour. Using OpenCV contour analysis, geometric and morphological descriptors—such as area, perimeter, aspect ratio, and roundness—are extracted as quantitative features. These extracted features serve as inputs for classification using a machine learning algorithm such as a Support Vector Machine (SVM) or Random Forest. This proposed DSP–OpenCV framework builds directly upon methods utilized in previous works but extends them toward automated egg size categorization, providing a low-cost, software-based solution capable of improving accuracy and reliability without the need for specialized imaging hardware.
 	
 	\section{Conclusion}
 	Between 2020 and 2025, research in egg classification has progressed remarkably through the integration of digital signal processing (DSP) and machine learning (ML). Techniques such as convolutional neural networks (CNNs), acoustic analysis, hyperspectral imaging, and Vision Transformers have enabled increasingly accurate and efficient systems for automated egg inspection. Each approach presents trade-offs, CNNs offer strong visual recognition, while acoustic and spectral methods provide insights into internal quality, though often at higher costs or computational demands. Despite these advances, challenges such as dataset scarcity, sensor affordability, and environmental variability still hinder large-scale deployment. Nonetheless, the growing focus on lightweight architectures, multimodal data fusion, and low-cost sensing technologies highlights a transition toward more practical and accessible solutions. Moreover, the adoption of federated learning and hybrid DSP-ML pipelines promises better generalization, interpretability, and adaptability across diverse agricultural contexts. Overall, the field is moving toward intelligent, sustainable, and scalable classification systems that could transform quality control in modern food production.
