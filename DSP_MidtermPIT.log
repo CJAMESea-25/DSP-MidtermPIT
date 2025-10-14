@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.5)  14 OCT 2025 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.5)  15 OCT 2025 01:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -338,7 +338,6 @@ File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 4066.
 Package hyperref Info: Hyper figures OFF on input line 4195.
 Package hyperref Info: Link nesting OFF on input line 4200.
 Package hyperref Info: Hyper index ON on input line 4203.
@@ -365,7 +364,7 @@ Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
 Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring ON on input line 6096.
+Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
 \Hy@abspage=\count313
@@ -392,7 +391,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip55
 )
-** ATTENTION: Overriding command lockouts (line 17).
+** ATTENTION: Overriding command lockouts (line 9).
 
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
 ex.def
@@ -401,24 +400,24 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 ) (DSP_MidtermPIT.aux)
 \openout1 = `DSP_MidtermPIT.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 -- Lines per column: 56 (exact).
 
@@ -447,41 +446,45 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring OFF on input line 11.
  (DSP_MidtermPIT.out) (DSP_MidtermPIT.out)
 \@outlinefile=\write3
 \openout3 = `DSP_MidtermPIT.out'.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 36.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
 
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 
 
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (3.89693pt too wide) in paragraph at lines 36--36
+Overfull \hbox (3.89693pt too wide) in paragraph at lines 28--28
  [] 
  []
 
 
-Overfull \hbox (3.89693pt too wide) in paragraph at lines 36--36
+Overfull \hbox (3.89693pt too wide) in paragraph at lines 28--28
  [] 
  []
 
 
-Overfull \hbox (3.89693pt too wide) in paragraph at lines 36--36
+Overfull \hbox (3.89693pt too wide) in paragraph at lines 28--28
  [] 
  []
 
 
 
-
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
+9.
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 
 [1{C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Use
 r/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
@@ -492,204 +495,36 @@ r/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 [2]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-09.
- (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Underfull \hbox (badness 3088) in paragraph at lines 119--119
-\OT1/ptm/m/n/8 sian fil-ter-ing, his-togram
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+[]\OT1/ptm/m/n/8 Shape-based grad-ing ac-cu-racy:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
-[]\OT1/ptm/m/n/8 95% ac-cu-racy; bet-ter
+Underfull \hbox (badness 4699) in paragraph at lines 138--139
+[]\OT1/ptm/m/n/8 Stabilized weight mea-sure-ments
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-[]\OT1/ptm/m/n/8 HSI (400{1000
+Underfull \hbox (badness 2205) in paragraph at lines 161--162
+[]\OT1/ptm/m/n/10 Most re-viewed stud-ies op-er-ated with rel-a-tively small
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-\OT1/ptm/m/n/8 nm); Sav-itzky{Golay
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-[]\OT1/ptm/m/n/8 93% ac-cu-racy; non-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-\OT1/ptm/m/n/8 destructive in-ter-nal
- []
-
-
-Underfull \hbox (badness 4899) in paragraph at lines 123--123
-[]\OT1/ptm/b/n/8 C. Acous-tic Re-sponse
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--123
-[]\OT1/ptm/m/n/8 Detect cracks through
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--123
-\OT1/ptm/m/n/8 for frequency-domain
- []
-
-
-Underfull \hbox (badness 2205) in paragraph at lines 125--125
-\OT1/ptm/b/n/8 Mor-pho-log-i-cal Pro-cess-
- []
-
-
-Underfull \hbox (badness 4001) in paragraph at lines 125--125
-\OT1/ptm/m/n/8 log-i-cal op-er-a-tions; ge-o-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-[]\OT1/ptm/b/n/8 E. Lightweight Deep
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-[]\OT1/ptm/m/n/8 Depthwise sep-a-ra-ble
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\OT1/ptm/m/n/8 con-vo-lu-tions;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\OT1/ptm/m/n/8 pre-pro-cess-ing (con-trast
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
-\OT1/ptm/m/n/8 nor-mal-iza-tion, Gaus-sian
- []
-
-
-Underfull \hbox (badness 3895) in paragraph at lines 127--128
-[]\OT1/ptm/m/n/8 94% ac-cu-racy; runs at
- []
-
-
-Underfull \hbox (badness 2368) in paragraph at lines 129--129
-[]\OT1/ptm/m/n/8 Detect micro-cracks not
- []
-
-
-Underfull \hbox (badness 3769) in paragraph at lines 129--129
-\OT1/ptm/m/n/8 Gra-di-ent Boosted Trees
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-[]\OT1/ptm/m/n/8 96% ac-cu-racy; de-tects
- []
-
-
-Underfull \hbox (badness 3396) in paragraph at lines 129--130
-\OT1/ptm/m/n/8 micro-cracks missed by
- []
-
-
-Underfull \hbox (badness 4699) in paragraph at lines 131--131
-\OT1/ptm/m/n/8 mal-iza-tion; deep neu-ral
- []
-
-
-Underfull \hbox (badness 2922) in paragraph at lines 131--131
-\OT1/ptm/m/n/8 net-work for mul-ti-modal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-[]\OT1/ptm/m/n/8 95% ac-cu-racy; ro-bust
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-\OT1/ptm/m/n/8 to light-ing vari-a-tion;
- []
-
-
-Underfull \hbox (badness 4859) in paragraph at lines 133--133
-\OT1/ptm/b/n/8 for Egg Clas-si-fi-ca-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-[]\OT1/ptm/m/n/8 97% ac-cu-racy;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-\OT1/ptm/m/n/8 out-per-forms CNN
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
-[]\OT1/ptm/b/n/8 I. Com-puter Vision-
- []
-
-
-Underfull \hbox (badness 1902) in paragraph at lines 135--135
-\OT1/ptm/b/n/8 for Egg Grad-ing and
- []
-
-
-Underfull \hbox (badness 7504) in paragraph at lines 135--135
-[]\OT1/ptm/m/n/8 Integrate deep learn-ing
- []
-
-
-Underfull \hbox (badness 6477) in paragraph at lines 135--135
-\OT1/ptm/m/n/8 nor-mal-iza-tion); RT-MDet
- []
-
-
-Underfull \hbox (badness 1478) in paragraph at lines 135--136
-\OT1/ptm/m/n/8 racy; $\OML/cmm/m/it/8 R[] \OT1/cmr/m/n/8 = 0\OML/cmm/m/it/8 :\O
-T1/cmr/m/n/8 96$ \OT1/ptm/m/n/8 for
- []
-
-
-
-
-Underfull \hbox (badness 2512) in paragraph at lines 152--153
-[]\OT1/ptm/m/n/10 Finally, scal-a-bil-ity to in-dus-trial op-er-a-tions re-main
-s a
- []
-
-
-Underfull \hbox (badness 5036) in paragraph at lines 152--153
-\OT1/ptm/m/n/10 when in-te-grated into high-throughput pro-duc-tion lines.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
-
- []
-
-
-Underfull \vbox (badness 1242) has occurred while \output is active []
 
 
 
 [3]
 
 
+Underfull \hbox (badness 1377) in paragraph at lines 199--200
+\OT1/ptm/m/n/10 fea-ture im-por-tance met-rics and vi-su-al-iza-tion of de-ci-s
+ion
+ []
+
+
 
 [4]
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -703,37 +538,37 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-
-
-[5
-
-] (DSP_MidtermPIT.aux)
+[5] (DSP_MidtermPIT.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `DSP_MidtermPIT.out' has not changed.
-(rerunfilecheck)             Checksum: 5978575CC37354579598BD105557005F;3877.
+(rerunfilecheck)             Checksum: D4F7660F06E145C266749B64FCE3FBEC;5345.
  ) 
 Here is how much of TeX's memory you used:
- 11167 strings out of 468130
- 173902 string characters out of 5431117
- 608073 words of memory out of 5000000
- 39626 multiletter control sequences out of 15000+600000
- 668189 words of font info for 121 fonts, out of 8000000 for 9000
+ 11203 strings out of 468130
+ 174327 string characters out of 5431117
+ 608075 words of memory out of 5000000
+ 39648 multiletter control sequences out of 15000+600000
+ 669557 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,1825b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,79p,1462b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/u
-rw/times/utmb8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/ur
-w/times/utmbi8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/ur
-w/times/utmr8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on DSP_MidtermPIT.pdf (5 pages, 129033 bytes).
+mex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/User/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/User/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/User/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/User/AppData/Local
+/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on DSP_MidtermPIT.pdf (5 pages, 181009 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 245 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

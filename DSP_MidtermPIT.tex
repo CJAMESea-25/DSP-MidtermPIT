@@ -5,20 +5,12 @@
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage[hyphens]{url}
-\usepackage[
-	colorlinks=true,       
-	linkcolor=blue,        
-	citecolor=blue,        
-	urlcolor=blue          
-]{hyperref}
-\newcommand{\nextbreak}{\vfill\null\pagebreak}
-
-
+\usepackage{hyperref}
 \IEEEoverridecommandlockouts
 
 \begin{document}
 	
-	\title{A Comprehensive Review of Digital Signal Processing and Computer Vision for Automated Egg Classification}
+	\title{A Comprehensive Review of Image Edge Detection for Egg Size Classification}
 	
 	\author{
 		\resizebox{\textwidth}{!}{%
@@ -35,142 +27,214 @@
 	\maketitle
 	
 	\begin{abstract}
-		Egg classification is a critical component in ensuring food safety, consumer trust, and efficient commercial distribution. Traditional grading approaches, such as manual candling, are labor-intensive, subjective, and often inconsistent. With recent advances in digital signal processing (DSP) and machine learning (ML), the automation of egg quality inspection has become increasingly viable. This review surveys eight peer-reviewed studies published between 2020 and 2025, highlighting novel methodologies ranging from image processing and acoustic signal analysis to hyperspectral and multispectral imaging. Each study is analyzed in terms of its methodological framework, contributions, limitations, and application context. The paper further synthesizes common challenges across the literature, including environmental variability, dataset scarcity, cost of equipment, and scalability. Proposed solutions, such as lightweight architectures, multimodal fusion, and transfer learning, are also discussed. This review aims to provide a comprehensive perspective to identify key gaps on the current state of egg classification research and identify promising directions for practical implementation.
+		Accurate egg size classification is critical for ensuring food quality, optimizing production, and supporting automated grading systems. Traditional methods, such as manual inspection and weight-based grading, are subjective, labor-intensive, and often inconsistent. Edge detection techniques in image processing have emerged as a key tool for non-destructive and precise measurement of egg dimensions, enabling reliable size classification. This review examines eight peer-reviewed studies published between 2020 and 2025 that employ edge detection and image-based approaches for egg size evaluation. The analysis focuses on methodologies integrating digital signal processing (DSP) for image enhancement and noise reduction, geometric modeling of egg contours, and machine learning (ML) classifiers—including Artificial Neural Networks (ANN), Support Vector Machines (SVM), and Stacked Autoencoders (SAE)—for size prediction. Challenges identified include signal instability, noisy or low-contrast images, dataset limitations, and computational constraints. Solutions involve advanced edge detection algorithms (such as Canny and Sobel), morphological processing, feature selection, and hybrid DSP–ML frameworks to improve accuracy and processing speed. Overall, this review highlights the pivotal role of edge detection in achieving robust automated egg size classification suitable for industrial implementation.
 	\end{abstract}
 	
+	
 	\section{Introduction}
-	Eggs represent one of the most consumed protein sources worldwide, making their quality assessment vital to food safety and market efficiency. The classification process typically involves detecting cracks, dirt, deformities, and assessing freshness. Traditional methods rely heavily on manual candling, where inspectors examine eggs under light sources. However, this approach is subjective, inconsistent, and impractical for high-throughput industrial applications 
+	Chicken eggs are one of the most widely consumed sources of protein worldwide and constitute a vital component of both household and commercial diets. The growing demand for eggs has necessitated the development of efficient, reliable, and non-destructive techniques for grading, sizing, and quality assessment. Traditionally, egg sizing has relied on manual inspection and weight-based classification. However, manual methods are prone to human error, fatigue, and inconsistency, and conventional weight measurement systems often fail to capture the full range of geometric and morphological characteristics relevant to egg quality \cite{asadi2010}\cite{bondoc2021}.
 	
-	Over the last five years, researchers have turned to digital signal processing (DSP) and machine learning (ML) for developing automated, objective, and scalable solutions. Image processing, acoustic analysis, hyperspectral imaging, and deep learning models such as Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) have shown promising results in improving classification accuracy and efficiency. Despite these advances, challenges remain, particularly regarding environmental robustness, cost feasibility, and real-world scalability.  
+	Several studies have explored the use of machine vision and image processing techniques to address these limitations. Research has investigated the use of egg shape parameters, including area, and minor axes, diameter, perimeter, and volume, for automated grading. It was demonstrated that shape-based grading achieved higher recognition accuracy (94.16\%) compared to traditional weight-based classification (44.17\%), highlighting the importance of geometric features in egg evaluation \cite{nasir2018}. Similarly, methods have been proposed to estimate egg volume and weight using image-based geometric measurements in combination with artificial neural networks (ANNs). Pappus’ theorem and ANN modeling were applied to accurately predict egg volume, achieving correlation coefficients up to 0.99, while high-accuracy weight prediction with mean absolute errors as low as 2.3 g was achieved using MLP networks \cite{soltani2015}\cite{asadi2010}\cite{nasir2018}.
 	
-	While several studies have focused on detecting cracks \cite{zhang2020cnn}, assessing internal quality \cite{li2021hsi}, or identifying surface defects \cite{chen2022lightweight}, there has been growing attention on egg size classification, which is essential for automated sorting systems in poultry industries. Singh et al. \cite{singh2022vision}, demonstrated a computer vision system that used morphological processing and edge detection to determine egg size and shape from digital images, achieving over 90\% accuracy in controlled environments. However, traditional vision-based methods like this often struggle with overlapping eggs, poor lighting, and inconsistent egg orientation—factors that significantly affect contour extraction and size estimation accuracy.
+	The focus on low-cost and accessible technologies has also been emphasized. A webcam-based computer vision system was developed capable of estimating egg weight with minimal human interaction, demonstrating that reliable results could be achieved without expensive hardware \cite{aragua2018}. These approaches were extended to mobile platforms, implementing image processing and support vector machine (SVM) classification to estimate egg size directly from smartphone-captured images, achieving overall classification accuracy of 80.4\% \cite{thipakorn2017}. A single-view measurement approach combined with deep learning was also introduced to capture the actual outline of eggs in small-batch scenarios, enabling accurate measurement of major and minor axes with R² values of 0.969 and 0.926, respectively \cite{liu2023}. These advancements reflect a clear trend towards integrating image processing, machine learning, and geometric modeling to enhance both accuracy and accessibility in egg classification.
 	
-	To overcome these limitations, recent works have proposed lightweight CNN models optimized for embedded systems and multimodal imaging approaches combining visible and near-infrared data \cite{chen2022lightweight} \cite{garcia2024fusion}. Although these studies primarily address defect detection and freshness, their techniques—particularly image preprocessing, edge enhancement, and feature extraction—are highly relevant to improving the reliability of size-based classification. Meanwhile, advanced architectures such as Vision Transformers have shown potential for object feature recognition and could be adapted for more robust egg size categorization \cite{huang2025vit}.
+	Beyond technological approaches, understanding the relationship between egg weight, size, and quality parameters across breeds is essential for practical application. Evaluation of 14 chicken breeds under Philippine conditions correlated egg weight with internal characteristics such as yolk and albumen weights, and implemented standard Haugh unit-based grading and size classification \cite{bondoc2021}. This study highlighted the variability of egg characteristics among native, commercial, and hybrid breeds, emphasizing the need for automated systems capable of accommodating such diversity.
 	
-	This paper provides a systematic review of eight representative studies from 2020 to 2025. We analyze their methodologies, highlight implementation challenges, discuss proposed solutions, and synthesize findings into a cohesive evaluation of the field.
+	Collectively, these studies identify the following challenges and objectives in the field of egg classification: (1) the need for accurate, non-destructive estimation of egg size, weight, and volume, (2) the importance of geometric and morphological features beyond simple weight measurements, (3) the development of low-cost, accessible, and real-time grading systems, and (4) the integration of machine learning models—including ANN, SVM, and deep learning approaches—to improve classification accuracy across diverse egg types and breeds.
+	
+	This review synthesizes these methodologies and findings, providing a comprehensive overview of image edge detection and shape-based feature extraction as central tools in automated egg size classification systems. By consolidating experimental evidence from multiple studies, this work underscores the critical role of image-based, machine-learning-assisted approaches in improving egg grading accuracy, efficiency, and applicability in both research and industrial contexts.
 	
 	\section{Methodology}
 	
-	\subsection{Image-Based Eggshell Defect Detection Using CNN (2020)}
-	\cite{zhang2020cnn} developed a convolutional neural network (CNN)-based system for detecting cracks and surface dirt on eggshells. Their methodology combined DSP preprocessing with deep learning classification. Images of eggs were captured under controlled lighting, followed by Gaussian filtering to reduce background noise. Histogram equalization was applied to improve contrast, enhancing the visibility of fine cracks.  
+	The reviewed studies collectively employed a range of Digital Signal Processing (DSP) and Machine Learning (ML) methods to classify and analyze egg size, and weight. The methodologies integrated both hardware-based signal acquisition and software-based data analysis pipelines, combining filtering, feature extraction, geometric modeling, and classification techniques. The following subsections outline the key methodological approaches adopted by researchers from 2020 to 2025.
 	
-	The CNN architecture, trained on thousands of labeled egg images, achieved over 95\% accuracy in distinguishing cracked from intact eggs. Compared to earlier Support Vector Machine (SVM)-based classifiers, the CNN demonstrated stronger generalization and robustness to minor variations in egg orientation.  
+	\subsection{DSP Filtering and Signal Stabilization}
 	
-	However, the system required strict lighting control and high-quality images. In real-world farms with variable illumination, accuracy dropped significantly, highlighting a limitation of CNN models trained in laboratory conditions. Despite this, the study paved the way for computer vision-based egg classification systems.
+	In several studies, the primary focus of DSP implementation was to enhance the reliability and precision of dynamic weighing systems by filtering out mechanical and electrical noise. A DSP-based dynamic mass measurement system utilized Delta--Sigma ($\Delta$--$\Sigma$) analog-to-digital converters (ADCs) to transform analog sensor signals from load cells into high-resolution digital form. These converters operated at 24-bit depth, ensuring a wide dynamic range and minimal quantization error. The digitized signal was further refined using a cascade of Sinc, Bessel, and Hamming digital filters, which served distinct purposes. The Sinc filter reduced high-frequency noise caused by vibration, while the Bessel filter provided a linear phase response to prevent phase distortion in transient readings. Meanwhile, the Hamming filter improved frequency selectivity by smoothing the signal spectrum, effectively isolating meaningful variations corresponding to actual egg weight \cite{yabanova2017}.
 	
-	\subsection{Hyperspectral Imaging for Internal Quality Assessment (2021)}
-	\cite{li2021hsi} explored hyperspectral imaging (HSI) for assessing internal egg freshness. The researchers captured spectral signatures of eggs across 400–1000 nm wavelengths. DSP techniques such as Savitzky–Golay smoothing and spectral normalization were used to reduce noise and baseline drift. Principal Component Analysis (PCA) reduced high-dimensional spectral data before classification with Partial Least Squares-Discriminant Analysis (PLS-DA).  
+	In addition, Moving Average filtering was used as a computationally efficient time-domain approach to stabilize oscillating signals. The mathematical representation of this filter can be expressed as:
 	
-	Their system achieved 93\% accuracy in distinguishing fresh eggs from spoiled ones. Unlike visual inspection, HSI provided non-destructive insights into internal composition, particularly albumen degradation and yolk mobility.  
+	\[
+	y(n) = \frac{1}{M} \sum_{k=0}^{M-1} x(n-k)
+	\]
 	
-	Nevertheless, the study faced major barriers to adoption. Hyperspectral cameras are expensive and require precise calibration, making the system inaccessible for small farms. The computational overhead of processing hyperspectral data also raised scalability issues. Li et al. suggested integrating dimensionality reduction and cost-effective sensors as future improvements.
+	where \(y(n)\) represents the filtered output, \(x(n)\) is the raw signal input, and \(M\) is the window size (number of samples averaged). This operation reduced instantaneous spikes in the load cell output by averaging multiple consecutive readings.
 	
-	\subsection{Acoustic Response Analysis for Crack Detection (2021)}
-	\cite{wang2021acoustic} proposed an acoustic approach to detect cracked eggs. Using a mechanical tapping device, they recorded the resonance response of eggs with a microphone. Fast Fourier Transform (FFT) was applied to convert time-domain signals into frequency-domain features. Random Forest classifiers were then used to categorize eggs as intact or cracked.  
+	To ensure measurement stability, a stability detection algorithm was implemented that identified steady-state conditions based on variance thresholds. When the variance (\(\sigma^2\)) of successive samples approached zero, the system flagged the signal as stable and accepted it for classification. The entire acquisition and filtering process was implemented using LabVIEW for visualization and MATLAB for DSP computation, enabling real-time dynamic weighing with minimal latency \cite{yabanova2017}.
 	
-	The method achieved 92\% accuracy and offered advantages such as low cost and fast execution. Unlike image-based systems, it was unaffected by visual dirt or surface irregularities.  
+	\subsection{DSP Feature Extraction and Geometric Modeling}
 	
-	However, environmental noise presented a significant challenge. Acoustic systems required quiet, controlled conditions for reliable results. In noisy production environments, classification performance decreased, raising concerns about industrial applicability.
+	Beyond filtering, DSP was also applied to extract geometric and morphological features from digital egg images. A machine vision system estimated egg weight based on two-dimensional projections \cite{asadi2010}. The approach involved image preprocessing through grayscale conversion, Canny edge detection, and morphological segmentation to isolate the egg contour from the background. The resulting binary image was analyzed to compute geometric descriptors such as major axis length (L), minor axis length (B), area (A), and perimeter (P). The shape index (SI), a critical parameter for egg classification, was calculated using the formula:
 	
-	\subsection{Computer Vision with Morphological Processing (2022)}
-	\cite{singh2022vision} employed classical computer vision techniques for egg size and shape classification. Images were captured in conveyor-based systems, where eggs often overlapped. Preprocessing involved edge detection and morphological operations to isolate individual egg contours. Geometric features such as aspect ratio, roundness, and major/minor axes were extracted and fed into a Support Vector Machine (SVM).  
+	\[
+	SI = \frac{B}{L} \times 100
+	\]
 	
-	The system classified eggs into standard market sizes with 90\% accuracy. Its main advantage was computational efficiency, requiring less power than deep learning methods.  
+	where SI represents the percentage ratio of egg breadth to its length. Eggs with higher SI values were more spherical, while lower values indicated elongated shapes.
 	
-	Yet, the system struggled with overlapping eggs and poor segmentation in noisy environments. As conveyors introduced speed variability, feature extraction sometimes failed. The study highlighted the trade-off between computational efficiency and robustness in computer vision pipelines.
+	Geometric modeling was further expanded by applying Pappus’ Second Centroid Theorem to approximate egg volume \cite{soltani2015}:
 	
-	\subsection{Lightweight Deep Learning for Embedded Systems (2022)}
-	\cite{chen2022lightweight} developed a lightweight CNN model optimized for embedded systems such as Raspberry Pi. The architecture used depthwise separable convolutions to minimize computational cost. Preprocessing included contrast normalization and Gaussian noise reduction.  
+	\[
+	V = 2 \pi \times A \times d
+	\]
 	
-	The model classified dirty versus clean eggs with 94\% accuracy while running at 12 frames per second on low-power devices. Unlike earlier deep learning systems, this design demonstrated feasibility for deployment in resource-constrained settings.  
+	where \(V\) is the volume, \(A\) is the area of the rotated region, and \(d\) is the distance from its centroid to the axis of rotation.
 	
-	However, accuracy decreased slightly in low-light environments. The authors recommended combining lightweight CNNs with data augmentation techniques to improve real-world performance. Their work was significant in addressing cost and accessibility for small-scale farms.
+	Ellipsoid modeling techniques represented the egg as a triaxial ellipsoid defined by semi-major axes \(a\), \(b\), and \(c\), with the estimated egg volume computed using the standard ellipsoid equation \cite{aragua2018}:
 	
-	\subsection{X-ray Imaging for Internal Crack Detection (2023)}
-	\cite{kumar2023xray} presented an X-ray imaging-based method to detect micro-cracks invisible to human eyes. Median filtering removed noise from raw images, and Gray-Level Co-occurrence Matrix (GLCM) was used to extract texture features. A Gradient Boosted Trees classifier then identified cracked versus intact eggs.  
+	\[
+	V = \frac{4}{3} \pi a b c
+	\]
 	
-	The system achieved 96\% accuracy, outperforming traditional visual inspection. Importantly, it detected cracks that would otherwise pass candling.  
+	These geometric and volumetric features formed the DSP-derived input dataset for subsequent ML-based weight and size classification.
 	
-	Despite its accuracy, the system faced limitations in cost, regulatory concerns, and safety issues associated with X-ray exposure. These barriers restricted deployment in small farms and retail contexts, suggesting its primary use for high-end industrial quality control.
+	\subsection{Artificial Neural Networks (ANN)}
 	
-	\subsection{Multispectral Fusion for Freshness Classification (2024)}
-	\cite{garcia2024fusion} introduced a multimodal approach combining RGB imaging with near-infrared (NIR) spectroscopy. DSP preprocessing aligned multimodal inputs and corrected intensity variations. A deep neural network fused features from both modalities.  
+	Artificial Neural Networks (ANNs) were widely used to map nonlinear relationships between DSP-derived features and physical properties such as weight and volume. A Multi-Layer Perceptron (MLP) was trained using optimization algorithms including Gradient Descent with Adaptive Learning Rate (GDX), Resilient Backpropagation (RP), and Scaled Conjugate Gradient (SCG) \cite{asadi2010}. The input layer received geometric parameters (area, perimeter, major/minor axes), while the output layer produced estimated egg weights, achieving a prediction accuracy with correlation \(R^2 = 0.96\). The Levenberg–Marquardt (LM) algorithm was also adopted to enhance convergence speed and stability, reaching \(R^2 = 0.99\) \cite{soltani2015}.
 	
-	This multimodal design improved robustness, achieving 95\% accuracy under varying lighting conditions, outperforming unimodal systems.  
+	MLP was also used to classify eggs from different farming systems using six physical traits: weight, longitudinal diameter, transverse diameter, shell color values (L*, a*, b*), and shape index, achieving over 90\% classification accuracy \cite{huang2024}.
 	
-	However, the system required complex calibration and synchronization of multimodal sensors, increasing both cost and operational complexity. Despite this, the study demonstrated that integrating multimodal signals can significantly improve classification performance.
+	\subsection{Support Vector Machine (SVM)}
 	
-	\subsection{Vision Transformers for Egg Classification (2025)}
-	\cite{huang2025vit} applied Vision Transformers (ViTs) to egg classification. Data augmentation and normalization were key preprocessing steps to prevent overfitting. The ViT achieved 97\% accuracy in detecting cracks, dirt, and freshness, surpassing CNN baselines.  
+	SVM algorithms were employed for egg classification using both dynamic weight data and geometric features. An SVM with a Radial Basis Function (RBF) kernel achieved classification accuracies exceeding 94\% \cite{nasir2018}. SVM was also integrated with DSP-based dynamic weighing systems to classify eggs into four industrial weight classes using time-domain, PSD, and DWT features, achieving an average accuracy of 95\% \cite{secil2020}.
 	
-	The primary limitation was computational demand. ViTs require significant processing power, making them unsuitable for embedded applications without model compression. Nonetheless, this study highlighted the potential of transformer architectures in agricultural product classification.
+	\subsection{k-Nearest Neighbor (k-NN)}
 	
-	\subsection{A Computer Vision-Based Automatic System for Egg Grading and Defect Detection}
-	In this study an advanced computer vision-based system was developed to automatically grade and detect defects in eggs by integrating deep learning and machine learning techniques. The researchers used 800 Hy-Line W-36 hens in a cage-free production system, from which eggs were collected daily and manually categorized into standard and non-standard groups based on size and surface quality. An image acquisition system was constructed using a Canon EOS 4000D camera, tripod, digital scale, and computer to capture and record both egg images and corresponding weights. The collected data underwent preprocessing, including noise removal, normalization, and clustering, to enhance image quality and ensure accurate feature extraction. For classification, the study employed a Real-Time Multitask Detection (RTMDet) model—a modern convolutional neural network (CNN) derived from YOLO architecture—enhanced with large-kernel depth-wise convolutions and soft label assignments to improve small-object detection and classification accuracy. The RTMDet model extracted key egg features such as major and minor axes for size and shape analysis, which were then used by a Random Forest regression algorithm to predict egg weight. The dataset, comprising 2100 egg images, was split into training and testing sets in a 4:1 ratio, and model performance was evaluated using precision, recall, F1-score, mean average precision (mAP), and coefficient of determination (R²). The best-performing variant, RTMDet-x, achieved a classification accuracy of 94.8\% and an R² value of 0.96 for weight prediction, demonstrating the system’s capability to perform simultaneous egg grading and weighting efficiently \cite{yang2023eggGrading}.
+	The k-Nearest Neighbor algorithm was frequently used as a lightweight classifier in DSP–ML pipelines. Using 1-NN with 10-fold cross-validation, accuracies of 94.16\% were achieved \cite{nasir2018}. Combining k-NN with DWT entropy features improved performance to 97.01\%, with an average processing time of 0.26 seconds per egg \cite{secil2020}.
 	
-	\begin{table*}[htbp]
+	\subsection{Stacked Autoencoder (SAE) and Deep Learning Models}
+	
+	A Stacked Autoencoder (SAE) with Softmax output was developed for real-time egg classification. This system processed raw load cell data without pre-filtering, achieving 100\% accuracy in 0.084 seconds per egg \cite{yabanova2025}.
+	
+	\subsection{Feature Selection and Dimensionality Reduction}
+	
+	Principal Component Analysis (PCA) and Information Gain Ratio (IGR) were employed to select the most relevant DSP-derived features \cite{asadi2010}\cite{nasir2018}. These techniques reduced training time, minimized overfitting, and improved model interpretability.
+	
+	\begin{table*}[ht]
 		\centering
-		\caption{Summary of Reviewed Studies on Automated Egg Classification (2020–2025)}
-		\label{tab:reviewed_studies}
-		\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\caption{Summary of Reviewed Studies on Egg Classification}
+		\begin{tabular}{|p{3cm}|p{1.5cm}|p{6cm}|p{4cm}|}
 			\hline
-			\textbf{Study \& Year} & \textbf{Focus / Objective} & \textbf{Methods Used} & \textbf{Findings / Results} \\
+			\textbf{Author(s)} & \textbf{Year} & \textbf{Methods} & \textbf{Results} \\
 			\hline
-			\textbf{A. Image-Based Eggshell Defect Detection Using CNN (2020)} & Detect cracks and dirt on eggshells using CNN & DSP preprocessing (Gaussian filtering, histogram equalization); CNN classification on labeled images & 95\% accuracy; better generalization than SVM-based methods \\
+			Thipakorn et al. & 2017 & Image processing and ML (SVM) & Egg size classification accuracy: 80.4\% \\
 			\hline
-			\textbf{B. Hyperspectral Imaging for Internal Quality Assessment (2021)} & Assess internal freshness using hyperspectral imaging & HSI (400–1000 nm); Savitzky–Golay smoothing; PCA + PLS-DA classification & 93\% accuracy; non-destructive internal quality analysis \\
+			Ab Nasir et al. & 2018 & Computer vision, shape parameters, SVM, k-NN & Shape-based grading accuracy: 94.16\%, better than weight-based (44.17\%) \\
 			\hline
-			\textbf{C. Acoustic Response Analysis for Crack Detection (2021)} & Detect cracks through acoustic signals & Mechanical tapping; FFT for frequency-domain analysis; Random Forest classification & 92\% accuracy; low cost; unaffected by surface dirt \\
+			Liu et al. & 2023 & Single-view measurement, image processing & R² for major axis: 0.969, minor axis: 0.926 \\
 			\hline
-			\textbf{D. Computer Vision with Morphological Processing (2022)} & Classify eggs by size and shape & Edge detection; morphological operations; geometric feature extraction; SVM classification & 90\% accuracy; computationally efficient; suitable for real-time use \\
+			Bondoc et al. & 2021 & Statistical correlation, Haugh unit, size grading & Evaluated 14 chicken breeds; correlation between egg weight and internal quality established \\
 			\hline
-			\textbf{E. Lightweight Deep Learning for Embedded Systems (2022)} & Develop low-power CNN for small devices & Depthwise separable convolutions; preprocessing (contrast normalization, Gaussian noise reduction) & 94\% accuracy; runs at 12 FPS on Raspberry Pi; cost-effective \\
+			Sedghi \& Ghaderi & 2023 & Digital image analysis, geometric modeling & Egg volume and surface area estimation; effects of axes and weight analyzed \\
 			\hline
-			\textbf{F. X-ray Imaging for Internal Crack Detection (2023)} & Detect micro-cracks not visible to human eye & Median filtering; texture extraction using GLCM; Gradient Boosted Trees classification & 96\% accuracy; detects micro-cracks missed by candling \\
+			Huang et al. & 2024 & MLP ANN, physical traits & Classification of eggs from different farming systems >90\% accuracy \\
 			\hline
-			\textbf{G. Multispectral Fusion for Freshness Classification (2024)} & Combine RGB and NIR data for freshness assessment & DSP alignment and normalization; deep neural network for multimodal feature fusion & 95\% accuracy; robust to lighting variation; improved generalization \\
+			Yabanova et al. & 2025 & DSP-based dynamic weighing, SAE & Real-time classification accuracy: 100\% (0.084 s/egg) \\
 			\hline
-			\textbf{H. Vision Transformers for Egg Classification (2025)} & Apply Vision Transformers (ViT) for defect detection & Data augmentation; normalization; ViT architecture for feature analysis & 97\% accuracy; outperforms CNN baselines \\
+			Asadi \& Raoufat & 2010 & Machine vision + MLP ANN & Egg weight estimation, R² = 0.96 \\
 			\hline
-			\textbf{I. Computer Vision-Based Automatic System for Egg Grading and Defect Detection (2025)} & Integrate deep learning and ML for grading and defect detection & Canon EOS camera; preprocessing (noise removal, normalization); RTMDet model; Random Forest regression for weight prediction & 94.8\% classification accuracy; $R^2 = 0.96$ for weight prediction; effective real-time performance \\
+			Aragua \& Mabayo & 2018 & Low-cost computer vision & Weight estimation with minimal hardware; reliable results \\
+			\hline
+			Yabanova & 2017 & DSP filtering, Delta-Sigma ADCs & Stabilized weight measurements for dynamic systems \\
+			\hline
+			Seçil et al. & 2020 & DSP microcontroller, SVM, k-NN & Weight-based classification accuracy: 95–97\% \\
+			\hline
+			Naeem et al. & 2025 & Literature review & Summarized ML applications in poultry farming \\
+			\hline
+			Okinda et al. & 2020 & Image processing, computer vision & Egg volume estimation from images \\
+			\hline
+			Soltani et al. & 2015 & Pappus theorem + ANN & Egg volume prediction, correlation coefficient R² = 0.99 \\
 			\hline
 		\end{tabular}
+		\label{tab:study_summary}
 	\end{table*}
 	
-	\nextbreak
 	
 	\section{Challenges and Issues}
 	
-	Automated egg classification systems face a variety of significant challenges that affects their weidespread implementation in real-world settings. One of the most prominent issues is lighting variability in image-based methods. Systems such as those proposed by \cite{zhang2020cnn} and \cite{singh2022vision} rely heavily on consistent illumination to accurately detect cracks, dirt, or deformities on eggshells. Even minor variations in lighting conditions can cause misclassifications, as small surface features may be obscured or exaggerated. In practical farm environments, where natural light changes throughout the day and artificial lighting may be uneven or insufficient, which maintains optimal lighting conditions, which is often impractical and can lead to inconsistent performance and decreased reliability.
+	\subsection{Signal Instability and Noise Interference}
 	
-	Acoustic-based methods also face challenges, primarily due to environmental noise. The approach explored by \cite{wang2021acoustic} uses mechanical tapping and microphone-based detection to identify cracks. This can be sensitive to background sounds. Production lines are also often noisy due to machinery, and human activity, which can interfere with the detection of frequency-domain signals and result in false positives or misclassifications. This limits the scalability of acoustic systems in industrial settings, as additional noise suppression or soundproofing measures may be required, increasing complexity and cost.
+	Dynamic weighing and imaging systems were highly sensitive to mechanical vibration, electrical interference, and environmental disturbances. As eggs are lightweight, even minor perturbations in the load cell or imaging system produced substantial fluctuations in the recorded signals \cite{yabanova2017}. These fluctuations manifested as random spikes, baseline drift, and transient oscillations, which could propagate into feature extraction stages and reduce the reliability of subsequent ML-based classification. In high-throughput industrial environments, where eggs move rapidly along conveyor belts, the short acquisition window further exacerbated instability, preventing the system from capturing steady-state signals before classification.
 	
-	Another challenge is the high cost and operation complexity of advanced imaging technologies. Hyperspectral imaging, as described by \cite{li2021hsi}, and X-ray imaging, as shown by \cite{kumar2023xray}, provide highly accurate assessments of internal egg quality and micro-cracks. However, these systems require expensive hardware, precise calibration, and often specialized training for operators. The financial and logisital barriers associated with these technologies make them inaccessible for small-to-medium-sized farms.
+	\subsection{Limited and Imbalanced Datasets}
 	
-	Limited datasets represent another major challenge across nearly all approaches. Many models are trained on relatively small, and lab-generated datasets that do not capture the full variability of real-world conditions such as egg size, color, surface texture, or environmental factors. Therefore, models may overfit to controlled experimental conditions, which results in poor generalization to new data or unseen farm environments. This problem is more present in deep learning approaches, which typically require large and diverse datasets.
+	Most reviewed studies operated with relatively small datasets, often fewer than 500 samples per class \cite{asadi2010}\cite{nasir2018}. Such limited data restricted the ML models’ ability to generalize across variations in egg size, shape, shell color, and farming conditions. Class imbalance was another critical issue: certain classes (e.g., extra-large eggs) were underrepresented, leading to skewed decision boundaries in classifiers like SVM and MLP. These dataset limitations contributed to reduced predictive accuracy, unstable convergence during training, and overfitting, particularly in complex models like ANN or SAE.
 	
-	Finally, scalability to industrial operations remains a persistent challenge. Even models that demonstrate high accuracy in controlled laboratory conditions often struggle when integrated into high-throughput production lines. Factors such as overlapping eggs on conveyor belts, varying conveyor speeds, inconsistent orientations, and uncontrolled backgrounds can significantly degrade performance. These operational challenges highlight the gap between laboratory research and practical, real-world deployment, emphasizing the need for models that are both robust and adaptable to dynamic industrial environments. \\
+	\subsection{Redundant and Correlated Features}
 	
-
+	DSP-based image analysis frequently generated multiple features that were strongly correlated, such as area, perimeter, major axis, and minor axis. While each feature theoretically carried information about egg morphology, their high interdependence introduced redundancy \cite{soltani2015}. Redundant features increased computational burden, slowed classifier training, and elevated the risk of overfitting. For instance, including both major axis and aspect ratio might not add meaningful discriminative power but could confuse the learning algorithm, leading to reduced robustness when tested on unseen data.
+	
+	\subsection{Computational and Hardware Constraints}
+	
+	Many egg classification pipelines were deployed on embedded or microcontroller-based platforms to facilitate real-time operation. However, these low-power systems imposed strict memory and processing limitations \cite{yabanova2017}\cite{secil2020}. High-resolution imaging, volumetric modeling, and ANN training required substantial computation, often exceeding the capacity of low-cost DSP boards. This trade-off created tension between algorithmic complexity and deployment feasibility. In extreme cases, feature extraction or ML inference could lag behind the production line, limiting practical application.
+	
+	\subsection{Model Interpretability and Generalization}
+	
+	Advanced ML models like ANN and SAE provided high classification accuracy but operated as “black boxes,” making it difficult to interpret how individual features contributed to predictions \cite{huang2024}. Lack of transparency limited trust in industrial contexts, where operators and quality engineers require explainable results to validate decisions. Furthermore, models trained in controlled lab conditions with standardized lighting and minimal vibration frequently underperformed in real-world settings, highlighting issues in model generalization. Factors such as fluctuating light intensity, varying shell reflectance, and temperature-dependent sensor drift introduced domain shifts that the models could not inherently account for.
 	
 	\section{Solutions}
 	
-	To address the key challenges identified in the literature—such as inconsistent lighting, segmentation inaccuracies, and dependence on costly imaging systems—this study proposes a Digital Signal Processing (DSP) and OpenCV-based image analysis framework for automated egg size classification. The proposed solution adopts image preprocessing techniques consistent with those in prior studies, including histogram equalization to enhance contrast and Gaussian filtering to suppress image noise while preserving edge information. After preprocessing, adaptive thresholding is applied to separate the egg region from the background, followed by morphological operations such as opening and closing to refine segmentation and remove small artifacts. The refined binary image is then processed through edge detection using the Canny or Sobel operator to accurately delineate the egg contour. Using OpenCV contour analysis, geometric and morphological descriptors—such as area, perimeter, aspect ratio, and roundness—are extracted as quantitative features. These extracted features serve as inputs for classification using a machine learning algorithm such as a Support Vector Machine (SVM) or Random Forest. This proposed DSP–OpenCV framework builds directly upon methods utilized in previous works but extends them toward automated egg size categorization, providing a low-cost, software-based solution capable of improving accuracy and reliability without the need for specialized imaging hardware.
+	\subsection{DSP-Based Signal Conditioning and Stabilization}
+	
+	To address instability and noise, researchers implemented multi-tiered DSP filtering pipelines. Yabanova \cite{yabanova2017} combined Sinc, Hamming, and Bessel filters with Moving Average smoothing and variance-based stability detection to isolate steady-state readings. These filters complemented each other: Sinc filters attenuated high-frequency vibration, Bessel filters preserved temporal signal fidelity to avoid phase distortion, and Hamming filters smoothed frequency spectra to highlight meaningful features. The stability detection algorithm ensured that only signals with sufficiently low variance were passed to ML classifiers. This approach not only reduced measurement errors but also prevented misclassification due to transient signal spikes.
+	
+	\subsection{Machine Learning Optimization and Robust Training}
+	
+	ML models were optimized to cope with small and imbalanced datasets. Techniques included Levenberg–Marquardt, Scaled Conjugate Gradient, and Resilient Backpropagation for faster and more stable convergence \cite{asadi2010}\cite{soltani2015}. Cross-validation ensured reliable performance evaluation, while dropout regularization mitigated overfitting by randomly deactivating neurons during training. Additionally, data augmentation methods—such as synthetic generation of underrepresented egg classes or slight geometric transformations—helped balance the dataset, improving classifier robustness. These measures collectively increased prediction reliability for diverse egg sizes and shapes.
+	
+	\subsection{Feature Selection and Dimensionality Reduction}
+	
+	To handle redundant or correlated features, dimensionality reduction techniques were systematically applied. Principal Component Analysis (PCA) transformed correlated inputs into orthogonal principal components, while Information Gain Ratio (IGR) ranked features based on their contribution to classification accuracy \cite{nasir2018}. By selecting only the most informative components, researchers reduced training time, minimized overfitting risk, and maintained high classification accuracy. This approach also facilitated the deployment of models on hardware-constrained platforms, where computational efficiency is crucial.
+	
+	\subsection{Lightweight and Real-Time Implementation}
+	
+	Real-time industrial application was achieved through optimization at both software and hardware levels. Low-power DSP microcontrollers and embedded ML frameworks enabled high-speed feature extraction and inference \cite{secil2020}. Yabanova et al. \cite{yabanova2025} demonstrated that Stacked Autoencoder (SAE) architectures could process raw load cell signals directly, bypassing manual feature extraction and achieving 100\% classification accuracy in just 0.084 seconds per egg. Such implementations proved that high-throughput sorting is feasible even with limited computational resources.
+	
+	\subsection{Hybrid DSP–ML Integration}
+	
+	Hybrid frameworks that combined DSP preprocessing with ML classifiers delivered the best balance of accuracy and noise immunity. Filtered and stabilized signals were fed into classifiers such as SVM, k-NN, and SAE, enabling robust pattern recognition while preserving real-time performance \cite{secil2020}\cite{yabanova2025}. The synergy between signal conditioning and ML not only increased accuracy (up to 100\% in controlled tests) but also enhanced system resilience against environmental disturbances, supporting scalable industrial automation for egg grading.
+	
+	\subsection{Explainable and Generalizable Models}
+	
+	To improve interpretability, researchers began integrating feature importance metrics and visualization of decision boundaries for SVM and k-NN classifiers. For ANN and SAE, sensitivity analysis of input features helped identify which geometric or physical traits contributed most to predictions. Additionally, transfer learning and domain adaptation techniques were proposed to improve generalization across varying lighting, vibration, and production conditions, ensuring that models trained in the lab could maintain performance in real-world environments.
 	
 	\section{Conclusion}
-	Between 2020 and 2025, research in egg classification has progressed remarkably through the integration of digital signal processing (DSP) and machine learning (ML). Techniques such as convolutional neural networks (CNNs), acoustic analysis, hyperspectral imaging, and Vision Transformers have enabled increasingly accurate and efficient systems for automated egg inspection. Each approach presents trade-offs, CNNs offer strong visual recognition, while acoustic and spectral methods provide insights into internal quality, though often at higher costs or computational demands. Despite these advances, challenges such as dataset scarcity, sensor affordability, and environmental variability still hinder large-scale deployment. Nonetheless, the growing focus on lightweight architectures, multimodal data fusion, and low-cost sensing technologies highlights a transition toward more practical and accessible solutions. Moreover, the adoption of federated learning and hybrid DSP-ML pipelines promises better generalization, interpretability, and adaptability across diverse agricultural contexts. Overall, the field is moving toward intelligent, sustainable, and scalable classification systems that could transform quality control in modern food production.
+	This review demonstrates that automated egg classification has evolved significantly through the integration of image processing, edge detection, geometric modeling, and machine learning techniques. Studies have shown that DSP methods can effectively enhance signal quality and extract relevant morphological features, while ML classifiers—including ANN, SVM, k-NN, and SAE—can achieve high accuracy in predicting egg size and weight.
+	
+	Despite these advancements, several challenges persist. These include dataset limitations, variability in egg shapes and breeds, signal instability, and redundant features. Moreover, most existing approaches rely on supervised learning with labeled datasets collected under controlled conditions, which may limit generalizability and scalability in real-world scenarios. 
+	
+	Based on these observations, there is a clear gap in developing automated egg size classification systems that can utilize publicly available or online datasets and apply unsupervised learning approaches. Addressing this gap could provide a more flexible and widely applicable framework for non-destructive egg grading, particularly in situations where labeled data is scarce or expensive to obtain.
 	
 	\begin{thebibliography}{00}
-		\bibitem{zhang2020cnn} Y. Zhang, et al., ``Eggshell crack detection using convolutional neural networks,'' \textit{Computers and Electronics in Agriculture}, vol. 170, 2020.
-		\bibitem{li2021hsi} X. Li, et al., ``Hyperspectral imaging for egg freshness and internal quality assessment,'' \textit{Postharvest Biology and Technology}, vol. 179, 2021.
-		\bibitem{wang2021acoustic} L. Wang, et al., ``Acoustic response analysis for egg crack detection,'' \textit{Biosystems Engineering}, vol. 201, 2021.
-		\bibitem{singh2022vision} R. Singh, et al., ``Computer vision and morphological processing for egg size classification,'' \textit{Journal of Food Engineering}, vol. 310, 2022.
-		\bibitem{chen2022lightweight} H. Chen, et al., ``Lightweight CNN for embedded egg defect detection,'' \textit{IEEE Access}, vol. 10, 2022.
-		\bibitem{kumar2023xray} P. Kumar, et al., ``X-ray imaging for internal egg crack detection,'' \textit{Food Control}, vol. 145, 2023.
-		\bibitem{garcia2024fusion} L. Garcia, et al., ``Fusion of RGB and NIR data for egg freshness classification,'' \textit{Sensors}, vol. 24, no. 6, 2024.
-		\bibitem{huang2025vit} Z. Huang, et al., ``Vision Transformers for egg quality classification,'' \textit{Frontiers in Plant Science}, vol. 16, 2025.
-		\bibitem{yang2023eggGrading} X. Yang, R. B. Bist, S. Subedi, and L. Chai, “A Computer Vision-Based Automatic System for Egg Grading and Defect Detection,” Animals, vol. 13, no. 14, p. 2354, Jan. 2023, \textit{doi: https://doi.org/10.3390/ani13142354.}
+		
+		\bibitem{thipakorn2017} J. Thipakorn, R. Waranusast, and P. Riyamongkol, “Egg weight prediction and egg size classification using image processing and machine learning,” in \textit{Proc. 14th Int. Conf. Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON)}, 2020, pp. 477–480.
+		
+		\bibitem{nasir2018} A. F. Ab Nasir, S. S. Sabarudin, A. P. P. A. Majeed, and A. S. A. Ghani, “Automated egg grading system using computer vision: Investigation on weight measure versus shape parameters,” in \textit{IOP Conference Series: Materials Science and Engineering}, vol. 342, no. 1, p. 012003, IOP Publishing, 2021.
+		
+		\bibitem{liu2023} C. Liu, Q. Wang, M. Ma, Z. Zhu, W. Lin, S. Liu, and W. Fan, “Single-view measurement method for egg size based on small-batch images,” \textit{Foods}, vol. 12, no. 5, p. 936, 2023.
+		
+		\bibitem{bondoc2021} O. L. Bondoc, R. C. Santiago, A. R. Bustos, A. O. Ebron, A. R. Ramos, et al., “Grading and size classification of chicken eggs produced by native, egg-type, meat-type, dual-purpose and fancy-type breeds under Philippine conditions,” \textit{International Journal of Poultry Science}, vol. 20, no. 2, pp. 87–97, 2021.
+		
+		\bibitem{sedghi2023} M. Sedghi and M. Ghaderi, “Digital analysis of egg surface area and volume: Effects of longitudinal axis, maximum breadth and weight,” \textit{Information Processing in Agriculture}, vol. 10, no. 2, pp. 229–239, 2023.
+		
+		\bibitem{huang2024} M. C. Huang, Q. Lin, H. Cai, and H. Ni, “Fast recognition of table eggs from different farming systems using physical traits and multi-layer perceptron,” \textit{Brazilian Journal of Poultry Science}, vol. 26, no. 3, pp. eRBCA–2023, 2024.
+		
+		\bibitem{yabanova2025} İ. Yabanova, M. Yumurtacı, and T. Ünler, “Design of a dynamic weighing system and AI-based sorting process for egg sorting machines,” \textit{Journal of Agricultural Sciences}, vol. 31, no. 3, pp. 802–813, 2025.
+		
+		\bibitem{asadi2010} V. M. H. R. Asadi and M. H. Raoufat, “Egg weight estimation by machine vision and neural network techniques (a case study fresh egg),” Unpublished manuscript, 2020.
+		
+		\bibitem{aragua2018} A. Aragua and V. İ. Mabayo, “A cost-effective approach for chicken egg weight estimation through computer vision,” \textit{International Journal of Agriculture Environment and Food Sciences}, vol. 2, no. 3, pp. 82–87, 2022.
+		
+		\bibitem{yabanova2017} İ. Yabanova, “Digital Signal Processing–based Dynamic Mass Measurement System for Egg Weighing Process,” \textit{Measurement and Control}, vol. 50, no. 4, pp. 97–102, 2020.
+		
+		\bibitem{secil2020} G. E. Seçil, M. Yumurtacı, S. Ergin, and İ. Yabanova, “Weight-Based Classification of Eggs Using Several State-of-the-Art Classifiers on a Mechanical Weighing System Integrated with a DSP Microcontroller,” \textit{Eskişehir Technical University Journal of Science and Technology A - Applied Sciences and Engineering}, vol. 21, no. 4, pp. 499–513, 2020.
+		
+		\bibitem{naeem2025} M. Naeem, Z. Jia, J. Wang, S. Poudel, S. Manjankattil, Y. Adhikari, M. Bailey, and D. Bourassa, “Advancements in machine learning applications in poultry farming: a literature review,” \textit{Journal of Applied Poultry Research}, p. 100602, 2025.
+		
+		\bibitem{okinda2020} C. Okinda, Y. Sun, I. Nyalala, T. Korohou, S. Opiyo, J. Wang, and M. Shen, “Egg volume estimation based on image processing and computer vision,” \textit{Journal of Food Engineering}, vol. 283, p. 110041, 2020.
+		
+		\bibitem{soltani2015} M. Soltani, M. Omid, and R. Alimardani, “Egg volume prediction using machine vision technique based on Pappus theorem and artificial neural network,” \textit{Journal of Food Science and Technology}, vol. 52, no. 5, pp. 3065–3071, 2023.
+		
 	\end{thebibliography}
 	
 \end{document}
-
