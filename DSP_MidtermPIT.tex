@@ -130,33 +130,44 @@
 	
 	Principal Component Analysis (PCA) and Information Gain Ratio (IGR) were employed to select the most relevant DSP-derived features \cite{asadi2010}\cite{nasir2018}. These techniques reduced training time, minimized overfitting, and improved model interpretability.
 	
-	\begin{table*}[ht]
-		\centering
-		\caption{Summary of Reviewed Studies on Egg Classification}
-		\label{tab:study_summary}
-		\renewcommand{\arraystretch}{1.3}
-		\begin{tabular}{p{3cm} p{1.5cm} p{6cm} p{4cm}}
-			\toprule
-			\textbf{Author(s)} & \textbf{Year} & \textbf{Methods} & \textbf{Results} \\
-			\midrule
-			Thipakorn et al. & 2020 & Image processing and ML (SVM) & Egg size classification accuracy: 80.4\% \\
-			Ab Nasir et al. & 2021 & Computer vision, shape parameters, SVM, k-NN & Shape-based grading accuracy: 94.16\%, better than weight-based (44.17\%) \\
-			Liu et al. & 2023 & Single-view measurement, image processing & R² for major axis: 0.969, minor axis: 0.926 \\
-			Bondoc et al. & 2021 & Statistical correlation, Haugh unit, size grading & Evaluated 14 chicken breeds; correlation between egg weight and internal quality established \\
-			Sedghi \& Ghaderi & 2023 & Digital image analysis, geometric modeling & Egg volume and surface area estimation; effects of axes and weight analyzed \\
-			Huang et al. & 2024 & MLP ANN, physical traits & Classification of eggs from different farming systems $>$90\% accuracy \\
-			Yabanova et al. & 2025 & DSP-based dynamic weighing, SAE & Real-time classification accuracy: 100\% (0.084 s/egg) \\
-			Asadi \& Raoufat & 2020 & Machine vision + MLP ANN & Egg weight estimation, R² = 0.96 \\
-			Aragua \& Mabayo & 2022 & Low-cost computer vision & Weight estimation with minimal hardware; reliable results \\
-			Yabanova & 2020 & DSP filtering, Delta-Sigma ADCs & Stabilized weight measurements for dynamic systems \\
-			Seçil et al. & 2020 & DSP microcontroller, SVM, k-NN & Weight-based classification accuracy: 95–97\% \\
-			Naeem et al. & 2025 & Literature review & Summarized ML applications in poultry farming \\
-			Okinda et al. & 2020 & Image processing, computer vision & Egg volume estimation from images \\
-			Soltani et al. & 2023 & Pappus theorem + ANN & Egg volume prediction, correlation coefficient R² = 0.99 \\
-			\bottomrule
-		\end{tabular}
-	\end{table*}
-
+\begin{table*}[ht]
+	\centering
+	\caption{Summary of Reviewed Studies on Egg Classification}
+	\begin{tabular}{|p{3cm}|p{1.5cm}|p{6cm}|p{4cm}|}
+		\hline
+		\textbf{Author(s)} & \textbf{Year} & \textbf{Methods} & \textbf{Results} \\
+		\hline
+		Thipakorn et al. & 2020 & Image processing and ML (SVM) & Egg size classification accuracy: 80.4\% \\
+		\hline
+		Ab Nasir et al. & 2021 & Computer vision, shape parameters, SVM, k-NN & Shape-based grading accuracy: 94.16\%, better than weight-based (44.17\%) \\
+		\hline
+		Liu et al. & 2023 & Single-view measurement, image processing & R² for major axis: 0.969, minor axis: 0.926 \\
+		\hline
+		Bondoc et al. & 2021 & Statistical correlation, Haugh unit, size grading & Evaluated 14 chicken breeds; correlation between egg weight and internal quality established \\
+		\hline
+		Sedghi \& Ghaderi & 2023 & Digital image analysis, geometric modeling & Egg volume and surface area estimation; effects of axes and weight analyzed \\
+		\hline
+		Huang et al. & 2024 & MLP ANN, physical traits & Classification of eggs from different farming systems >90\% accuracy \\
+		\hline
+		Yabanova et al. & 2025 & DSP-based dynamic weighing, SAE & Real-time classification accuracy: 100\% (0.084 s/egg) \\
+		\hline
+		Asadi \& Raoufat & 2020 & Machine vision + MLP ANN & Egg weight estimation, R² = 0.96 \\
+		\hline
+		Aragua \& Mabayo & 2022 & Low-cost computer vision & Weight estimation with minimal hardware; reliable results \\
+		\hline
+		Yabanova & 2020 & DSP filtering, Delta-Sigma ADCs & Stabilized weight measurements for dynamic systems \\
+		\hline
+		Seçil et al. & 2020 & DSP microcontroller, SVM, k-NN & Weight-based classification accuracy: 95–97\% \\
+		\hline
+		Naeem et al. & 2025 & Literature review & Summarized ML applications in poultry farming \\
+		\hline
+		Okinda et al. & 2020 & Image processing, computer vision & Egg volume estimation from images \\
+		\hline
+		Soltani et al. & 2023 & Pappus theorem + ANN & Egg volume prediction, correlation coefficient R² = 0.99 \\
+		\hline
+	\end{tabular}
+	\label{tab:study_summary}
+\end{table*}
 	
 	\section{Challenges and Issues}
 	
