@@ -42,13 +42,16 @@
 		Accurate egg size classification is critical for ensuring food quality, optimizing production, and supporting automated grading systems. Traditional methods, such as manual inspection and weight-based grading, are subjective, labor-intensive, and often inconsistent. Edge detection techniques in image processing have emerged as a key tool for non-destructive and precise  of egg dimensions, enabling reliable size classification. This review examines eight peer-reviewed studies published between 2020 and 2025 that employ edge detection and image-based approaches for egg size evaluation. The analysis focuses on methodologies integrating digital signal processing (DSP) for image enhancement and noise reduction, geometric modeling of egg contours, and machine learning (ML) classifiers—including Artificial Neural Networks (ANN), Support Vector Machines (SVM), and Stacked Autoencoders (SAE)—for size prediction. Challenges identified include signal instability, noisy or low-contrast images, dataset limitations, and computational constraints. Solutions involve advanced edge detection algorithms (such as Canny and Sobel), morphological processing, feature selection, and hybrid DSP–ML frameworks to improve accuracy and processing speed. Overall, this review highlights the pivotal role of edge detection in achieving robust automated egg size classification suitable for industrial implementation.
 	\end{abstract}
 	
+	\begin{IEEEkeywords}
+		Egg classification, Edge detection, Digital Signal Processing, Machine Learning, Geometric Modeling
+	\end{IEEEkeywords}
 	
 	\section{Introduction}
 	Chicken eggs are one of the most widely consumed sources of protein worldwide and constitute a vital component of both household and commercial diets. The growing demand for eggs has necessitated the development of efficient, reliable, and non-destructive techniques for grading, sizing, and quality assessment. Traditionally, egg sizing has relied on manual inspection and weight-based classification. However, manual methods are prone to human error, fatigue, and inconsistency, and conventional weight measurement systems often fail to capture the full range of geometric and morphological characteristics relevant to egg quality \cite{asadi2010}\cite{bondoc2021}.
 	
 	Several studies have explored the use of machine vision and image processing techniques to address these limitations. Research has investigated the use of egg shape parameters, including area, and minor axes, diameter, perimeter, and volume, for automated grading. It was demonstrated that shape-based grading achieved higher recognition accuracy (94.16\%) compared to traditional weight-based classification (44.17\%), highlighting the importance of geometric features in egg evaluation \cite{nasir2018}. Similarly, methods have been proposed to estimate egg volume and weight using image-based geometric measurements in combination with artificial neural networks (ANNs). Pappus’ theorem and ANN modeling were applied to accurately predict egg volume, achieving correlation coefficients up to 0.99, while high-accuracy weight prediction with mean absolute errors as low as 2.3 g was achieved using MLP networks \cite{soltani2015}\cite{asadi2010}\cite{nasir2018}.
 	
-	The focus on low-cost and accessible technologies has also been emphasized. A webcam-based computer vision system was developed capable of estimating egg weight with minimal human interaction, demonstrating that reliable results could be achieved without expensive hardware \cite{2018}. These approaches were extended to mobile platforms, implementing image processing and support vector machine (SVM) classification to estimate egg size directly from smartphone-captured images, achieving overall classification accuracy of 80.4\% \cite{thipakorn2017}. A single-view measurement approach combined with deep learning was also introduced to capture the actual outline of eggs in small-batch scenarios, enabling accurate measurement of major and minor axes with R² values of 0.969 and 0.926, respectively \cite{liu2023}. These advancements reflect a clear trend towards integrating image processing, machine learning, and geometric modeling to enhance both accuracy and accessibility in egg classification.
+	The focus on low-cost and accessible technologies has also been emphasized. A webcam-based computer vision system was developed capable of estimating egg weight with minimal human interaction, demonstrating that reliable results could be achieved without expensive hardware \cite{okinda2020}. These approaches were extended to mobile platforms, implementing image processing and support vector machine (SVM) classification to estimate egg size directly from smartphone-captured images, achieving overall classification accuracy of 80.4\% \cite{thipakorn2017}. A single-view measurement approach combined with deep learning was also introduced to capture the actual outline of eggs in small-batch scenarios, enabling accurate measurement of major and minor axes with R² values of 0.969 and 0.926, respectively \cite{liu2023}. These advancements reflect a clear trend towards integrating image processing, machine learning, and geometric modeling to enhance both accuracy and accessibility in egg classification.
 	
 	Beyond technological approaches, understanding the relationship between egg weight, size, and quality parameters across breeds is essential for practical application. Evaluation of 14 chicken breeds under Philippine conditions correlated egg weight with internal characteristics such as yolk and albumen weights, and implemented standard Haugh unit-based grading and size classification \cite{bondoc2021}. This study highlighted the variability of egg characteristics among native, commercial, and hybrid breeds, emphasizing the need for automated systems capable of accommodating such diversity.
 	
@@ -103,7 +106,7 @@
 	
 	where \(V\) is the volume, \(A\) is the area of the rotated region, and \(d\) is the distance from its centroid to the axis of rotation.
 	
-	Ellipsoid modeling techniques represented the egg as a triaxial ellipsoid defined by semi-major axes \(a\), \(b\), and \(c\), with the estimated egg volume computed using the standard ellipsoid equation \cite{2018}:
+	Ellipsoid modeling techniques represented the egg as a triaxial ellipsoid defined by semi-major axes \(a\), \(b\), and \(c\), with the estimated egg volume computed using the standard ellipsoid equation \cite{okinda2020}:
 	
 	\[
 	V = \frac{4}{3} \pi a b c
@@ -141,13 +144,13 @@
 				\hline
 				\multirow{2}{*}{\textbf{Author, Year}} & \multicolumn{7}{c|}{\textbf{Methods}} \\ 
 				\cline{2-8}
-				& \textbf{DSP Filtering} & \textbf{Geometric Modeling} & \textbf{SVM} & \textbf{k-NN} & \textbf{ANN / MLP} & \textbf{SAE} & \textbf{Feature Selection} \\ 
+				& \textbf{DSP Filtering} & \textbf{Geometric Modeling} & \textbf{SVM} & \textbf{k-NN} & \textbf{ANN} & \textbf{SAE} & \textbf{Feature Selection} \\ 
 				\hline
 				Thipakorn et al., 2020 &  & \checkmark & \checkmark &  &  &  &  \\
 				\hline
-				Ab Nasir et al., 2021 &  & \checkmark & \checkmark & \checkmark &  &  &  \\
+				Ab Nasir et al., 2021 &  & \checkmark & \checkmark & \checkmark &  &  \checkmark&  \\
 				\hline
-				Liu et al., 2023 &  & \checkmark &  &  &  & \checkmark &  \\
+				Liu et al., 2023 &  & \checkmark &  &  &  & &  \\
 				\hline
 				Bondoc et al., 2021 &  &  &  &  &  &  & \checkmark \\
 				\hline
@@ -157,15 +160,13 @@
 				\hline
 				Yabanova et al., 2025 & \checkmark &  &  &  &  & \checkmark &  \\
 				\hline
-				Asadi \& Raoufat, 2020 &  & \checkmark &  &  & \checkmark &  &  \\
+				Asadi \& Raoufat, 2020 &  & \checkmark &  &  & \checkmark &  & \checkmark  \\
 				\hline
-				Aragua \& Mabayo, 2022 &  & \checkmark &  &  &  &  &  \\
+				Aragua \& Mabayo, 2022 &  &  &  &  & \checkmark &  &  \\
 				\hline
 				Yabanova, 2020 & \checkmark &  &  &  &  &  &  \\
 				\hline
 				Seçil et al., 2020 & \checkmark &  & \checkmark & \checkmark &  &  &  \\
-				\hline
-				Naeem et al., 2025 &  &  &  &  &  & \checkmark &  \\
 				\hline
 				Okinda et al., 2020 &  & \checkmark &  &  &  &  &  \\
 				\hline
@@ -253,8 +254,6 @@
 		\bibitem{yabanova2017} İ. Yabanova, “Digital Signal Processing–based Dynamic Mass Measurement System for Egg Weighing Process,” \textit{Measurement and Control}, vol. 50, no. 4, pp. 97–102, 2020.
 		
 		\bibitem{secil2020} G. E. Seçil, M. Yumurtacı, S. Ergin, and İ. Yabanova, “Weight-Based Classification of Eggs Using Several State-of-the-Art Classifiers on a Mechanical Weighing System Integrated with a DSP Microcontroller,” \textit{Eskişehir Technical University Journal of Science and Technology A - Applied Sciences and Engineering}, vol. 21, no. 4, pp. 499–513, 2020.
-		
-		\bibitem{naeem2025} M. Naeem, Z. Jia, J. Wang, S. Poudel, S. Manjankattil, Y. Adhikari, M. Bailey, and D. Bourassa, “Advancements in machine learning applications in poultry farming: a literature review,” \textit{Journal of Applied Poultry Research}, p. 100602, 2025.
 		
 		\bibitem{okinda2020} C. Okinda, Y. Sun, I. Nyalala, T. Korohou, S. Opiyo, J. Wang, and M. Shen, “Egg volume estimation based on image processing and computer vision,” \textit{Journal of Food Engineering}, vol. 283, p. 110041, 2020.
 		
